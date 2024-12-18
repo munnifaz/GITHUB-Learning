@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title基本的な断点の使い方</title>
+</head>
+<body>
+    <h1>基本的な断点の使い方</h1>
+    <p>calculateTotal()関数は、ショッピングカート内の商品の価格(price)と数量(quantity)に基づいて合計金額(total)を計算。</p><br/>
+    <p>ショッピングカートの合計金額計算機能で、ユーザーからのフィードバックで合計金額が正しくないという苦情がある、debugをしてください。</p> <br/>
+    <!-- デバッグ用のメッセージを追加 -->
+<p><strong>デバッグメッセージ：</strong> 
+    <p>まず、商品の価格と数量が正しく表示されているかを確認してください。特に、数量がゼロの場合にアイテムが合計金額に含まれないことを確認しましょう。
+    </p>
+<p><strong>数量がゼロの場合に、ユーザーに警告メッセージを表示するためには、alert()を使ってJavaScriptで処理を追加することができます。</strong></p>
+</p>
+
+    <script>
+        function calculateTotal(items) {
+         let total = 0;
+
+          // items.forEach(item => {
+          //       if (item.quantity === 0) {
+          //           // 数量がゼロの場合、ユーザーに警告メッセージを表示
+          //           alert(`注意: 商品「${item.name}」の数量はゼロです。合計金額に含まれません。`);
+          //       }
+          //       total += item.price * item.quantity;
+          //   });
+
+        items.forEach(item => {
+            total += item.price * item.quantity; // 断点を
+        });
+             return total;
+    }
+const cart = [
+    { name: "Apple", price: 1.5, quantity: 3 },
+    { name: "Banana", price: 1.2, quantity: 3 },
+    { name: "Orange", price: 2.0, quantity: 5 },
+    { name: "Grapes", price: 3.0, quantity: 2 },
+    { name: "Watermelon", price: 5.0, quantity: 100 },
+    { name: "Peach", price: 1.0, quantity: 4 },
+    { name: "イチゴ", price: 2.5, quantity: 0 },
+    { name: "Mango", price: 3.5, quantity: 2 },
+    { name: "Blueberry", price: 4.0, quantity: 6 },
+    { name: "Pineapple", price: 6.0, quantity: 1 }
+];
+
+     console.log('合 計:', calculateTotal(cart));
+
+    </script>
+</body>
+</html>
