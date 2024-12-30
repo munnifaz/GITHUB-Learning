@@ -2,6 +2,10 @@
   margin:0px;
   padding:0px;
   background-color: blueviolet;
+  caret-color: white;
+  color: white;
+  font-family: Arial, sans-serif; #mengfei comment 建议
+
 }
 
 #octocat {
