@@ -1,0 +1,5 @@
+total 12
+-rw-rw-r-- 1 ubuntu ubuntu 780 Jan  3 11:43 README.md
+-rw-rw-r-- 1 ubuntu ubuntu   0 Jan  3 11:46 content.txt
+-rw-rw-r-- 1 ubuntu ubuntu 355 Jan  3 11:43 index.html
+-rw-rw-r-- 1 ubuntu ubuntu 256 Jan  3 11:43 styles.css
