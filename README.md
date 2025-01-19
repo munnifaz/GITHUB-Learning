@@ -1,3 +1,19 @@
+Team Project:CareConnect
+
+Team Information
+
+Team Name
+
+TEAM NAME: [Team PixelPushers]
+Collage Name:Ajay Kumar Garg Engineering College
+
+Team Members
+
+[Mohammad Ziya]
+
+[Arpit Pandey]
+
+[Mohammad Kaif]
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
