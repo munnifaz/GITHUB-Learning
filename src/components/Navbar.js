@@ -24,7 +24,8 @@ const handlemenuclose=()=>{
 
       </ul>
       <button className="mainbtn">FindCare</button>
-      <button className="mainbtn">Caregiver</button>
+      
+      <Link to="/Registration"><button className="mainbtn">Caregiver</button></Link>
       <button className="menu"onClick={handlemenu}><MenuIcon/></button>
     </div>
     <div className={`${menuopen?'togglemenu':'menuclose'}`}>
