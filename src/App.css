@@ -11,6 +11,9 @@
 a{
   text-decoration: none;
 }
+Link{
+  text-decoration: none;
+}
 .App{
   height:auto;
   width:100vw;
