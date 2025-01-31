@@ -1,0 +1,14 @@
+{
+  "name": "Spoon-Knife Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "ms-vscode.vscode-typescript-tslint-plugin"
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "eslint.enable": true,
+    "prettier.requireConfig": true
+  }
+}
