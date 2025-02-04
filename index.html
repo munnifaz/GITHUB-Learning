@@ -1,20 +1,67 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>Spoon-Knife</title>
-  <LINK href="styles.css" rel="stylesheet" type="text/css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fork It - GitHub Fun</title>
+  <link href="styles.css" rel="stylesheet" type="text/css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      margin: 50px;
+    }
+    
+    #octocat {
+      width: 200px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    #octocat:hover {
+      transform: scale(1.1);
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 
 <body>
 
-<img src="forkit.gif" id="octocat" alt="" />
+  <img src="forkit.gif" id="octocat" alt="Octocat holding a fork" />
 
-<!-- Feel free to change this text here -->
-<p>
-  Fork me? Fork you, @octocat!
-</p>
+  <p>
+    Fork me? Fork you too, but in a friendly way! 😄
+  </p>
+
+  <button onclick="alert('Forked Successfully!')">Click to Fork</button>
+
+  <script>
+    document.getElementById("octocat").onclick = function() {
+      alert("You clicked the Octocat! 🐙");
+    };
+  </script>
 
 </body>
 </html>
