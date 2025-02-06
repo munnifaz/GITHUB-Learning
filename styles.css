@@ -14,8 +14,8 @@ p {
   width: 400px;
   margin: 50px auto;
   font: 30px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
-  color: #333;
-  line-height: 1.5;
+  color: red;
+  line-height: 2.5;
   text-align: center;
 }
 
@@ -29,3 +29,4 @@ body {
   width: 100%;
   height: auto;
 }
+
