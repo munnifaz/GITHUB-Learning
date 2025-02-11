@@ -1,20 +1,44 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spoon-Knife</title>
-  <LINK href="styles.css" rel="stylesheet" type="text/css">
+  <link href="styles.css" rel="stylesheet" type="text/css">
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    #octocat {
+      width: 150px;
+      margin: 20px auto;
+      display: block;
+    }
+    p {
+      font-size: 18px;
+      color: #333;
+    }
+    .fork-button {
+      background-color: #ff4500;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    .fork-button:hover {
+      background-color: #cc3700;
+    }
+  </style>
 </head>
-
 <body>
-
-<img src="forkit.gif" id="octocat" alt="" />
-
-<!-- Feel free to change this text here -->
-<p>
-  Fork me? Fork you, @octocat!
-</p>
-
+  <img src="forkit.gif" id="octocat" alt="Octocat" />
+  <p>Fork me? Fork you, @octocat!</p>
+  <button class="fork-button" onclick="alert('Forking initiated!')">Fork Now</button>
 </body>
 </html>
