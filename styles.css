@@ -1,17 +1,40 @@
-* {
-  margin:0px;
-  padding:0px;
+/* Apply a modern font and reset default margin/padding */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
+/* Style the header */
+header {
+  padding: 20px;
+  background-color: #24292e;
+}
+
+/* Make the Octocat image responsive */
 #octocat {
-  display: block;
-  width:384px;
-  margin: 50px auto;
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
 }
 
+/* Style the text */
 p {
-  display: block;
-  width: 400px;
-  margin: 50px auto;
-  font: 30px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+  font-size: 1.2rem;
+  margin: 20px;
+  padding: 10px;
+  background: #ffffff;
+  display: inline-block;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  p {
+    font-size: 1rem;
+  }
 }
