@@ -38,7 +38,7 @@ function Body() {
                         alt={building.name}
                         className="w-full h-[250px] object-cover rounded-md"
                     />
-                    <h3 className="mt-2 text-lg text-pretty font-semibold text-black">{building.name}</h3>
+                    <div className="flex flex-col bg-orange-500 h-[55px] rounded-xl py-4 px-5 font-bold text-white">{building.name}</div>
                     </div>
                 ))}
             </div>
