@@ -21,24 +21,27 @@ function Body() {
                 </div>
             </div>
 
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-5 py-4">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-3 gap-y-5 px-5 py-4">
                 {data.map((building, idx) => (
                     <div
                         key={idx}
-                        className="flex flex-col bg-white border border-gray-200 rounded-xl py-3 px-2"
-                    >
-                    <div className="flex items-center z-10 self-end border w-[154px] h-[37px] rounded-2xl py-2 px-4">
-                        <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                        <p className="text-[10.5px] text-black font-bold">
-                        {building.rooms_available} rooms available
-                        </p>
-                    </div>
-                    <img
-                        src={building.building_file}
-                        alt={building.name}
-                        className="w-full h-[250px] object-cover rounded-md"
-                    />
-                    <div className="flex flex-col bg-orange-500 h-[55px] rounded-xl py-4 px-5 font-bold text-white">{building.name}</div>
+                        className="relative w-[97%] h-[370px] rounded-md overflow-hidden"
+                    >   
+                        <img
+                            src={building.building_picture}
+                            alt={building.name}
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute top-2 right-2 bg-white shadow-md flex items-center border w-[154px] h-[37px] rounded-2xl py-2 px-4">
+                            <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                            <p className="text-[10.5px] text-black font-bold">
+                            {building.rooms_available} rooms available
+                            </p>
+                        </div>
+
+                        <div className="absolute bottom-2 left-2 right-2 bg-orange-500 py-3 px-4 h-[50px] rounded-xl font-bold text-white">
+                            {building.name}
+                        </div>
                     </div>
                 ))}
             </div>
