@@ -1,14 +1,22 @@
 import data from '../data/data'
+import filterlist from '../assets/filterlist.png'
+import filteralt from '../assets/fileteralt.png'
 
 function Body() {
     return (
         <div className="flex flex-col bg-white w-full h-full overflow-y-scroll">
             <div className='flex justify-center bg-white w-full'>
-                <div className="flex flex-row w-full max-w-[97%] justify-between mt-4">
+                <div className="flex flex-row w-full max-w-[97%] justify-between mt-4 gap-x-4">
                     <div className="flex flex-row">
-                        <div className="flex gap-2 justify-content items-center border-[2px] border-orange-500 h-[44px] w-[134px] bg-white rounded-xl cursor-pointer"></div>
+                        <div className="flex justify-start px-4 gap-2 items-center border-[2px] border-orange-500 h-[44px] w-[134px] bg-white rounded-xl cursor-pointer">
+                            <img src={filteralt} className='flex w-6'>
+                            </img>
+                            <p className='flex text-orange-500 font-bold'>
+                                Filters 
+                            </p>
+                        </div>
                     </div>
-                    <div className="flex flex-row gap-2 items-start border border-gray-400 rounded-md bg-white px-2 py-2 h-[44px] w-full max-w-[800px] hover:border-black">
+                    <div className="flex flex-row items-start border border-gray-400 rounded-md bg-white px-2 py-2 h-[44px] w-full max-w-[800px] hover:border-black">
                         <input
                             type="text"
                             placeholder="Search for a building..."
@@ -16,7 +24,13 @@ function Body() {
                         />
                     </div>
                     <div>
-                        <div className="flex gap-2 justify-content items-center border-[2px] border-orange-500 h-[44px] w-[120px] bg-white rounded-xl cursor-pointer"></div>
+                        <div className="flex gap-2 justify-start px-4 items-center border-[2px] border-orange-500 h-[44px] w-[120px] bg-white rounded-xl cursor-pointer">
+                        <img src={filterlist} className='flex w-6'>
+                            </img>
+                            <p className='flex text-orange-500 font-bold'>
+                                Sort
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
