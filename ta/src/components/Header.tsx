@@ -1,14 +1,14 @@
 import closed from '../assets/freeroomsDoorClosed.png'
-import freerooms from '../assets/freeRoomsLogo.png'
+import open from '../assets/freeRoomsLogo.png'
 import title from '../assets/title.png'
-import darkmode from '../assets/darkmode.png'
-import grid from '../assets/grid.png'
-import search from '../assets/search.png'
-import map from '../assets/map.png'
+import Grid from './icons/grid'
+import Search from './icons/search'
+import Map from './icons/map'
 import { useState } from 'react';
+import Dark from './icons/darkmode'
+import { Card } from './Card'
 
 function Header() {
-    
     const [closedDoor, setClosedDoor] = useState(false);
     return (
         <header className="flex bg-white w-full min-h-[8%] border-b justify-center">
@@ -17,7 +17,7 @@ function Header() {
                     <div className='flex flex-row mb-3'>
                         <img 
                             // If closed, display closed door if not display open door
-                            src={closedDoor ? closed : freerooms} 
+                            src={closedDoor ? closed : open} 
                             className='w-[48px] h-[50px] cursor-pointer' 
                             // update state every on click to alter
                             onClick={() => setClosedDoor(!closedDoor)}
@@ -26,22 +26,18 @@ function Header() {
                     </div>
                        
                     <div className='flex flex-row mb-1 gap-[7px]'>
-                        <div className="flex gap-2 justify-center items-center border-[1px] border-orange-300 h-[40px] w-[40px] bg-white rounded-md hover:bg-black/5 hover:border-orange-500 transition cursor-pointer">
-                            <img src={search} className="flex w-6">
-                            </img>
-                        </div>
-                        <div className="flex gap-2 justify-center items-center border-[1px] border-orange-300 h-[40px] w-[40px] bg-white rounded-md hover:bg-black/5 hover:border-orange-500 transition cursor-pointer">
-                            <img src={grid} className="flex w-6">
-                            </img>
-                        </div>
-                        <div className="flex gap-2 justify-center items-center border-[1px] border-orange-300 h-[40px] w-[40px] bg-white rounded-md hover:bg-black/5 hover:border-orange-500 transition cursor-pointer">
-                            <img src={map} className="flex w-6">
-                            </img>
-                        </div>
-                        <div className="flex gap-2 justify-center items-center border-[1px] border-orange-300 h-[40px] w-[40px] bg-white rounded-md hover:bg-black/5 hover:border-orange-500 transition cursor-pointer">
-                            <img src={darkmode} className="flex w-6">
-                            </img>
-                        </div>
+                        <Card>
+                            <Search />
+                        </Card>
+                        <Card>
+                            <Grid />
+                        </Card>
+                        <Card>
+                            <Map />
+                        </Card>
+                        <Card>
+                            <Dark />
+                        </Card>
                     </div>
                 </div>
             </div>
