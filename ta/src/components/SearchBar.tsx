@@ -5,7 +5,7 @@ import Search from './icons/search'
 const SearchBar: React.FC = () => {
 
   return (
-    <div className="flex flex-row items-start border border-gray-400 rounded-md bg-white px-3 py-2 h-[44px] w-full max-w-[800px] hover:border-black gap-1">
+    <div className="flex items-start border border-gray-400 rounded-md bg-white px-3 py-2 h-[44px] w-full max-w-[800px] hover:border-black gap-1">
       <Search />
       <input
         type="text"
