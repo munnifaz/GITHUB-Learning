@@ -33,18 +33,16 @@ function Body() {
                         <CardFilterList />
                     </div>
                 )}
-
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-3 gap-y-5 px-5 py-4">
+            <div className="grid grid-rows-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-3 gap-y-5 px-5 py-4">
                 {data.map((building, idx) => (
                     <div
                         key={idx}
-                        className="relative w-[97%] xl:h-[370px] lg:h-[370px] md:h-[280px] sm:h-[210px] rounded-md overflow-hidden cursor-pointer"
+                        className="relative h-[140px] w-[97%] xl:h-[370px] lg:h-[370px] md:h-[280px] sm:h-[210px] rounded-md overflow-hidden cursor-pointer"
                     >   
                         <img
                             src={building.building_picture}
-                            alt={building.name}
                             className="w-full h-full object-cover"
                         />
                         <div className="absolute inset-0 bg-orange-500/30 opacity-0 hover:opacity-100 transition"></div>
@@ -56,8 +54,13 @@ function Body() {
                             </p>
                         </div>
 
-                        <div className="absolute bottom-2 left-2 right-2 bg-orange-500 py-3 px-4 h-[50px] rounded-xl font-bold text-white">
+                        <div className="xl:absolute lg:absolute md:absolute sm:absolute bottom-2 left-2 right-2 bg-orange-500 py-3 px-4 h-[50px] rounded-xl font-bold text-white">
                             {building.name}
+                        </div>
+                        <div className='absolute text-white font-bold top-16 xl:hidden lg:hidden md:hidden sm:hidden px-4'>
+                            <p>
+                                {building.name}
+                            </p>
                         </div>
                     </div>
                 ))}
