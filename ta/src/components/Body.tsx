@@ -1,38 +1,23 @@
-import { useState, useEffect } from 'react';
 import data from '../data/data';
 import { CardFilterAdd, CardFilterList } from './Card';
 import SearchBar from './SearchBar';
 
 function Body() {
-    const [isMd, setIsMd] = useState(false);
-    
-    useEffect(() => {
-        const checkScreenSize = () => {
-            setIsMd(window.innerWidth < 768);
-        };
-        checkScreenSize();
-        window.addEventListener('resize', checkScreenSize);
-        return () => window.removeEventListener('resize', checkScreenSize); 
-    }, []);
-
     return (
         <div className="flex flex-col bg-white w-full h-full overflow-y-scroll">
             <div className="flex justify-center bg-white w-full">
-                {isMd ? (
-                    <div className="flex flex-col w-full max-w-[97%] mt-4 gap-4">
+                    <div className='xl:hidden lg:hidden md:hidden flex flex-col w-full max-w-[97%] mt-4 gap-4'>
                         <SearchBar />
                         <div className='flex flex-row justify-between'>
                             <CardFilterAdd />
                             <CardFilterList />
                         </div>
                     </div>
-                ) : (
-                    <div className="flex flex-row w-full max-w-[97%] justify-between mt-4 gap-x-4">
+                    <div className="xl:flex md:flex lg:flex sm:hidden hidden flex flex-row w-full max-w-[97%] justify-between mt-4 gap-x-4">
                         <CardFilterAdd />
                         <SearchBar />
                         <CardFilterList />
                     </div>
-                )}
             </div>
 
             <div className="grid grid-rows-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-3 gap-y-5 px-5 py-4">
