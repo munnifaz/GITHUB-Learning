@@ -1,11 +1,11 @@
 * {
-  margin:0px;
-  padding:0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 #octocat {
   display: block;
-  width:384px;
+  width: 384px;
   margin: 50px auto;
 }
 
@@ -13,8 +13,9 @@ p {
   display: block;
   width: 400px;
   margin: 50px auto;
-  font: 30px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
-    color: #333;
+
+  font: 30px Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+  color: #333;
   line-height: 1.5;
   text-align: center;
 }
@@ -28,5 +29,4 @@ body {
   display: block;
   width: 100%;
   height: auto;
-}
 }
