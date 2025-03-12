@@ -1,3 +1,15 @@
+## Project Title
+This is the final version after resolving the conflict.
+
+## Contributor: Lucky Nakola  
+I have experience working with Git and GitHub, including branching, merging, pull requests, and resolving conflicts. I am improving my skills in collaboration and open-source contribution.
+
+## HOw it works
+1.Repository: a git project that contains all files and history.
+## Project Title
+This is the main branch version.
+
+
 ### Well hello there!
 
 This repository is meant to provide an example for *forking* a repository on GitHub.

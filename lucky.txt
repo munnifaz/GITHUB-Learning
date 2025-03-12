@@ -1,0 +1,3 @@
+Git and GitHub are essential tools for version control and collaboration.  
+I have learned how to fork a repository, create branches, commit changes,  
+handle merge conflicts, rebase, and use pull requests for contributions.  
