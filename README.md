@@ -1,6 +1,5 @@
 ## Project Title
-This is the feature1 branch version.
-
+This is the final version after resolving the conflict.
 
 ## Contributor: Lucky Nakola  
 I have experience working with Git and GitHub, including branching, merging, pull requests, and resolving conflicts. I am improving my skills in collaboration and open-source contribution.
