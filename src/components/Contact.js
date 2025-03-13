@@ -33,6 +33,7 @@ export default function Contact() {
        setRobot(e.target.checked)
     }
     const handleSubmit = (e) => {
+        alert("message sent to site");
         e.preventDefault();
     
         emailjs
