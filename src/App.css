@@ -926,7 +926,7 @@ color:black;
   align-items: center;
   margin-top:20px;
   justify-content: space-around;
-  border-radius: 16px;
+  border-radius: 24px;
   width:90%;
   background-color: rgba(149, 215, 225, 1);
   min-height:40px;
@@ -1059,6 +1059,10 @@ color:(0, 0, 0, 1);
 .whole .settext, .settext1, .settext2, .settext3, .settext4{
   font-size:11px;
 }
+.vector{
+  height:30px;
+  width:10%;
+}
 }
 
 
@@ -1128,6 +1132,7 @@ padding:10px 10px 10px 30px;
 @media screen and (max-width:450px){
   .page5 h3{
     font-size:32px;
+    text-align:center;
   }
   .suggest{
     font-size:17px;
@@ -1434,11 +1439,12 @@ min-height:40px;
 border-radius:8px;
 border:1.5px solid black;
 background-color: rgba(255, 255, 255, 0.3);
+color:black;
 font-family: "Poppins", serif;   
 font-size: 20px;
 font-weight: 400;
 text-align: center;
-margin-top:10px;
+margin-top:4px;
 margin-bottom:10px;
 }
 
@@ -1476,7 +1482,15 @@ font-family: "Poppins", serif;
 font-size: 20px;
 font-weight: 400;
 text-align: center;
-margin-top: 10px;
+margin-top: 3px;
+}
+.expertise {
+  margin-top:5px;
+  margin-bottom:10px;
+}
+.language{
+  margin-top:10px;
+  margin-bottom:10px;
 }
 .schedule{
   width:3%;
@@ -1556,6 +1570,9 @@ box-shadow:-5px 9px 4px 0px rgba(15, 73, 78, 0.25);
   form input{
     font-size:15px;
   }
+  form label{
+    font-size:9px;
+  }
   form select{
     font-size:15px;
   }
@@ -1567,6 +1584,10 @@ box-shadow:-5px 9px 4px 0px rgba(15, 73, 78, 0.25);
   }
   .allthree{
     height:53px;
+  }
+  .submit{
+    width:119px;
+    height:35px;
   }
   @keyframes slide{
     0%{

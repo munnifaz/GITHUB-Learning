@@ -84,7 +84,7 @@ export default function Registration() {
 
           </select>
           </span>
-          <select >
+          <select className="expertise">
             <option>Year of Expertise</option>
             <option >Less than 1 year</option>
             <option>1-3 years</option>
@@ -96,7 +96,7 @@ export default function Registration() {
           <input type="text" value={qualification} className="qualify" placeholder="Qualifications" onChange={handlechange}/>
           </span>
           <span class="form-group">
-                <label for="schedule">Preferred Work Schedule</label>
+                <label for="schedule" className="schedul">Preferred Work Schedule</label>
                 <div class="checkbox-group">
                     <label><input type="checkbox" className="schedule" value="full-time"/> Full-Time</label>
                     <label><input type="checkbox" className="schedule" value="part-time"/> Part-Time</label>
