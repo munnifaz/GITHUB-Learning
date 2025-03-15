@@ -3,6 +3,14 @@
   padding:0px;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+}
+
 #octocat {
   display: block;
   width:384px;
@@ -10,8 +18,10 @@
 }
 
 p {
-  display: block;
-  width: 400px;
-  margin: 50px auto;
+  margin-top: 50px;
   font: 30px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+}
+
+h1 {
+    color: green;
 }
