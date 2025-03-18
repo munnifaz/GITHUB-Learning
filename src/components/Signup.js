@@ -1,21 +1,26 @@
+
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const Signup = () => {
+const Signup = ({handleClick}) => {
     const[name,setName]=useState();
       const[password,setPassword]=useState();
       const[email,setEmail]=useState();
+    
       const navigate=useNavigate();
       
      const handleChange=(e)=>{
       if(e.target.className==="username"){
         setName(e.target.value)
       }
+        
       else if(e.target.className==="email"){
         setEmail(e.target.value)
+        
       }
       else{
         setPassword(e.target.value)
+        
       }
     
       }
@@ -25,8 +30,13 @@ const Signup = () => {
             alert("Please enter all mandatory fields")
             return;
           }
-        const user={name,email,password:password}
-        localStorage.setItem('user',JSON.stringify(user));
+        handleClick({name,email,password})
+        setName("")
+        setPassword("")
+        setEmail("")
+
+        
+       
         alert("Signup Successfull")
         navigate("/Login")
       }

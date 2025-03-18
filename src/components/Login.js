@@ -1,20 +1,23 @@
-import React, { useContext, useState } from 'react'
-import { Link, useNavigate } from 'react-router';
+import React, { useState } from 'react'
+import { Link} from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 
-const Login = () => {
-  
+const Login = ({Handlelog}) => {
+  const navigate=useNavigate();
   const[name,setName]=useState();
   const[password,setPassword]=useState();
-  const navigate=useNavigate();
-  const[isLoggedIn,setisLoggedIn]=useState(localStorage.getItem("isLoggedIn") === "true")
+  
+  // const[isLoggedIn,setisLoggedIn]=useState(localStorage.getItem("isLoggedIn") === "true")
   
  const handleChange=(e)=>{
   if(e.target.className==="username"){
     setName(e.target.value)
+    
   }
   else{
     setPassword(e.target.value)
+    
   }
 
   }
@@ -24,21 +27,10 @@ const Login = () => {
       alert("Please enter all mandatory fields")
       return;
     }
-
-    const storeduser=JSON.parse(localStorage.getItem('user'));
-
-    if(name!==storeduser.name && password!==storeduser.password){
-      alert("No id Found with this details Please Signup")
-      localStorage.setItem("isLoggedIn", "false");
-      setisLoggedIn(false);
-      navigate("/signup")
-    }
-    if(name===storeduser.name && password===storeduser.password){
-      alert("Login Successfull");
-      localStorage.setItem("isLoggedIn", "true");
-      setisLoggedIn(true);
-      navigate("/")
-    }
+   
+    Handlelog({name,password},navigate)
+    setName("")
+    setPassword("")
 
   }
 

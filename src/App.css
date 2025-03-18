@@ -105,6 +105,27 @@ color:white;
 box-shadow:inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
 border:none;
 }
+.idphoto{
+  align-items: center;
+  justify-content: center;
+  text-align:center;
+}
+.idname{
+  font-family: "Outfit", serif;  
+font-size: 20px;
+font-weight: 400;
+height:100%;
+display: block;
+}
+.nologout{
+  display:none;
+}
+.logout{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin-top: 10%;
+}
 .page1{
 width:100vw;
 height: 622px;
