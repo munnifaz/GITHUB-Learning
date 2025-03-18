@@ -12,7 +12,7 @@ export default function Page2() {
         <li>Professional Background Verification</li>
         <li>Fraud Prevention Measures </li>
       </ul>
-    <Link to ={isLoggedIn==="true"?"/Registration":"/Login"}><button className="app1">Start</button></Link>
+    <Link to ="/Login"><button className="app1">Start</button></Link>
 
     </div>
     <div className="client">
