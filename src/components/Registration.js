@@ -57,7 +57,7 @@ export default function Registration() {
         </div>
       </div>
       <div className="formimage">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="rform">
           <h1><span>Caregivers</span>  Registration  Form</h1>
           <input type="text" value={name} className="name" placeholder="Full Name" onChange={handlechange}/>
           <input type="date"  className="date" placeholder="Date of Birth"/>

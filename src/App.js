@@ -7,6 +7,8 @@ import Registration from './components/Registration';
 // import Page2 from './components/Page2';
 // import Page3 from './components/Page3';
 import Fullpage from './components/Fullpage';
+import Login from './components/Login';
+import Signup from './components/Signup';
 
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
       <Routes>
       <Route path="/" element={<Fullpage/>} />
       <Route path="/Registration" element={<Registration/>} />
+      <Route path="/Login" element={<Login/>} />
+      <Route path="/signup" element={<Signup/>}/>
       {/* <Route path="/page2" element={<Page2/>} />
       <Route path="/page3" element={<Page3/>} />
       <Route path="/" element={<Page1/>} /> */}
