@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OM AGGARWAL - Personal Intro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1 {
+      color: #0066cc;
+    }
+    ul {
+      list-style-type: square;
+    }
+    section {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>👋 Hello! I'm OM AGGARWAL</h1>
+
+  <section>
+    <h2>🧑‍🎓 Introduction</h2>
+    <p>My name is <strong>OM AGGARWAL</strong>, and I am a regular <strong>B.Tech student</strong> with a passion for learning, creating, and personal development.</p>
+  </section>
+
+  <section>
+    <h2>🎯 Hobbies</h2>
+    <ul>
+      <li>🏊 Swimming</li>
+      <li>✍️ Writing</li>
+      <li>📚 Learning</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🛠️ Skills</h2>
+    <ul>
+      <li>🎖️ NCC Cadet</li>
+      <li>💻 Basic Programming</li>
+      <li>🌐 Curious about technology</
