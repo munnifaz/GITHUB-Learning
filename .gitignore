@@ -1,0 +1,6 @@
+#logs and databases#
+*.log 
+*.sql
+*.zip
+*.com
+
