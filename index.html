@@ -1,20 +1,55 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>Spoon-Knife</title>
-  <LINK href="styles.css" rel="stylesheet" type="text/css">
-</head>
+  <meta charset="UTF-8" />
+  <title>Spoon-Knife: Forkin' Around</title>
+  <link href="styles.css" rel="stylesheet" type="text/css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffe29f, #ffa99f);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding: 50px;
+      color: #2c2c2c;
+      animation: fadeIn 2s ease-in-out;
+    }
 
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    #octocat {
+      width: 200px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    #octocat:hover {
+      transform: rotate(15deg) scale(1.1);
+    }
+
+    p {
+      font-size: 24px;
+      margin-top: 30px;
+      background-color: rgba(255, 255, 255, 0.6);
+      display: inline-block;
+      padding: 15px 25px;
+      border-radius: 20px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    }
+
+    p::after {
+      content: " 🍴";
+    }
+  </style>
+</head>
 <body>
 
-<img src="forkit.gif" id="octocat" alt="" />
+  <img src="forkit.gif" id="octocat" alt="Octocat Forking" />
 
-<!-- Feel free to change this text here -->
-<p>
-  Fork me? Fork you, @octocat!
-</p>
+  <p>
+    Fork me? Fork you, <strong>@octocat</strong>! Let's spoon later. 😏
+  </p>
 
 </body>
 </html>
