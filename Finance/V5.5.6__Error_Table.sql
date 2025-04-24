@@ -1,5 +1,5 @@
 -- Create a table named "products" with columns for product_id, name, category, and price
-CREATE TABLE OR REPLACE OPERATION.PUBLIC.products (
+CREATE OR REPLACE TABLE OPERATION.PUBLIC.products (
     product_id INT,  -- Syntax error: missing comma after 'INT'
     name VARCHAR(255),
     category VARCHAR(255),
