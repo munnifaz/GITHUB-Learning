@@ -7,7 +7,7 @@ CREATE TABLE OPERATION.PUBLIC.products (
 );
 
 -- Insert data into the "products" table with a syntax error
-INSERT  products (product_id, name, category, price) VALUES
+INSERT INTO OPERATION.PUBLIC.products (product_id, name, category, price) VALUES
     (1, 'Laptop', 'Electronics', 1200.00),
     (2, 'Mouse', 'Electronics', 25.00),
     (3, 'Keyboard', 'Electronics', 50.00);  -- Syntax error: missing comma after 'Electronics'
