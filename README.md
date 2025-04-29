@@ -1,6 +1,5 @@
 
 
-```
 # 🍴 Fork Me — Practice Makes Perfect
 
 Welcome to the **Spoon-Knife** repository! This project is designed to help you practice the GitHub forking workflow — an essential skill in open source collaboration.
@@ -51,4 +50,3 @@ If you found this project helpful or fun,
 **please give it a STAR** ⭐ on GitHub to show your support!
 
 Thanks for practicing — and happy coding! 💖
-```
