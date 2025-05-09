@@ -11,7 +11,14 @@
 
 p {
   display: block;
-  width: 400px;
-  margin: 50px auto;
-  font: 30px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+  width: 60%;
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 20px;
+  background-color: #1e1e2f;
+  color: #f8f8f2;
+  font: 1.2rem 'Fira Code', 'Courier New', Courier, monospace;
+  border-left: 5px solid #ff6ac1;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
