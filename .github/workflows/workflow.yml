@@ -30,9 +30,7 @@ jobs:
 
       - name: Download server task definition
         run: |
-          aws ecs describe-task-definition \
-            --task-definition mayaops-prod-spoon-server-task-def \
-            --query taskDefinition > server-task-definition.json
+          aws ecs describe-task-definition --task-definition mayaops-prod-spoon-server-task-def --query taskDefinition > server-task-definition.json
 
       - name: Login to Amazon ECR
         id: login-server-ecr
@@ -62,4 +60,4 @@ jobs:
           task-definition: ${{ steps.task-def-server.outputs.task-definition }}
           service: mayaops-prod-spoon-server-service
           cluster: ${{ env.ECS_CLUSTER }}
-          # wait-for-service-stability: true
+          wait-for-service-stability: true
