@@ -1,15 +1,16 @@
-# Use nginx as the base image
-FROM nginx:alpine
+FROM node:alpine
 
-# Copy your project files to the nginx html directory
-COPY ./*.html /usr/share/nginx/html/
-COPY ./*.css /usr/share/nginx/html/
-COPY ./*.js /usr/share/nginx/html/
-COPY ./*.jpg /usr/share/nginx/html/
-COPY ./*.png /usr/share/nginx/html/
+# Install http-server globally
+RUN npm install -g http-server
 
-# Expose port 80
+# Set working directory
+WORKDIR /app
+
+# Copy HTML, CSS, images, etc.
+COPY . .
+
+# Expose default http-server port
 EXPOSE 8080
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Run http-server
+# CMD ["http-server", "-p", "8080"]

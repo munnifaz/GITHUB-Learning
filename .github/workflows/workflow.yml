@@ -62,4 +62,4 @@ jobs:
           task-definition: ${{ steps.task-def-server.outputs.task-definition }}
           service: mayaops-prod-spoon-server-service
           cluster: ${{ env.ECS_CLUSTER }}
-          wait-for-service-stability: true
+          # wait-for-service-stability: true
