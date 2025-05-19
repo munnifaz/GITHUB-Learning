@@ -1,0 +1,169 @@
+#include <esp_now.h>
+#include <WiFi.h>
+#include <deque>
+#include <vector>
+#include <cstring>
+
+#define STORAGE_LIMIT 30
+#define MAC_SIZE 6
+
+// Peer MAC addresses
+static const uint8_t PEERS[][MAC_SIZE] = {
+  {0x30, 0xED, 0xA0, 0xA8, 0xCE, 0xD0},
+  {0x34, 0xCD, 0xB0, 0x35, 0xBB, 0xF8}
+};
+static constexpr size_t NUM_PEERS = sizeof(PEERS) / MAC_SIZE;
+
+// Broadcast address
+static uint8_t broadcastAddress[MAC_SIZE] = { 0xFF,0xFF,0xFF,0xFF,0xFF,0xFF };
+
+// Message structure
+struct MessageStruct {
+  uint8_t sender[MAC_SIZE];
+  int code;
+};
+
+class DeviceState {
+private:
+  uint8_t mac_[MAC_SIZE];
+  std::deque<MessageStruct> messageQueue_;
+  MessageStruct stored_[STORAGE_LIMIT];
+  int storedCount_ = 0;
+
+  bool isPeer(const uint8_t* addr) const {
+    for (size_t i = 0; i < NUM_PEERS; ++i) {
+      if (memcmp(addr, PEERS[i], MAC_SIZE) == 0) return true;
+    }
+    return false;
+  }
+
+  const char* codeToString(int code) const {
+    switch (code) {
+      case 0: return "OK";
+      case 1: return "WAIT";
+      case 2: return "GO_ON";
+      case 3: return "RETREAT";
+      case 4: return "INJURED";
+      case 5: return "NEED_SUPPLIES";
+      case 6: return "AT_MEETING_PT";
+      case 7: return "SOS";
+      default: return "UNKNOWN";
+    }
+  }
+
+  void pushAndStore(const MessageStruct& msg) {
+    // Update stored states
+    bool found = false;
+    for (int i = 0; i < storedCount_; ++i) {
+      if (memcmp(stored_[i].sender, msg.sender, MAC_SIZE) == 0) {
+        found = true;
+        if (stored_[i].code != msg.code) {
+          stored_[i].code = msg.code;
+        } else {
+          return; // duplicate state, skip queue
+        }
+        break;
+      }
+    }
+    if (!found) {
+      if (storedCount_ < STORAGE_LIMIT) {
+        memcpy(stored_[storedCount_].sender, msg.sender, MAC_SIZE);
+        stored_[storedCount_].code = msg.code;
+        ++storedCount_;
+      } else {
+        // rotate out oldest
+        memmove(stored_, stored_ + 1, sizeof(MessageStruct) * (STORAGE_LIMIT - 1));
+        memcpy(stored_[STORAGE_LIMIT - 1].sender, msg.sender, MAC_SIZE);
+        stored_[STORAGE_LIMIT - 1].code = msg.code;
+      }
+    }
+
+    // queue recent
+    messageQueue_.push_back(msg);
+    if (messageQueue_.size() > STORAGE_LIMIT) {
+      messageQueue_.pop_front();
+    }
+  }
+
+public:
+  DeviceState(const uint8_t* mac) {
+    memcpy(mac_, mac, MAC_SIZE);
+  }
+
+  // Called by ESP-NOW on receive
+  void receivePacket(const uint8_t* data, size_t len) {
+    size_t count = len / sizeof(MessageStruct);
+    const MessageStruct* msgs = reinterpret_cast<const MessageStruct*>(data);
+    for (size_t i = 0; i < count; ++i) {
+      pushAndStore(msgs[i]);
+      if (isPeer(msgs[i].sender)) {
+        Serial.print("Peer Message: ");
+        Serial.println(codeToString(msgs[i].code));
+      }
+    }
+  }
+
+  // Now takes user_state instead of counter
+  void broadcastMessage(int user_state) {
+    // Build self message
+    MessageStruct selfMsg;
+    memcpy(selfMsg.sender, mac_, MAC_SIZE);
+    selfMsg.code = user_state;
+
+    // Build payload vector
+    std::vector<MessageStruct> payload;
+    payload.reserve(1 + messageQueue_.size());
+    payload.push_back(selfMsg);
+    for (auto& m : messageQueue_) payload.push_back(m);
+
+    // Split into packets if needed
+    size_t maxPerPacket = 250 / sizeof(MessageStruct);
+    for (size_t i = 0; i < payload.size(); i += maxPerPacket) {
+      size_t chunk = std::min(maxPerPacket, payload.size() - i);
+      esp_err_t res = esp_now_send(broadcastAddress,
+        reinterpret_cast<const uint8_t*>(&payload[i]),
+        chunk * sizeof(MessageStruct));
+      if (res != ESP_OK) Serial.println("Send Error");
+      delay(15);
+    }
+  }
+};
+
+DeviceState* device;
+
+void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
+  Serial.print("Send Status: ");
+  Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Success" : "Fail");
+}
+
+void OnDataRecv(const esp_now_recv_info_t *info, const uint8_t *incomingData, int len) {
+  device->receivePacket(incomingData, len);
+}
+
+void setup() {
+  Serial.begin(115200);
+  WiFi.mode(WIFI_STA);
+
+  if (esp_now_init() != ESP_OK) {
+    Serial.println("Error initializing ESP-NOW");
+    return;
+  }
+  esp_now_register_send_cb(OnDataSent);
+  esp_now_register_recv_cb(OnDataRecv);
+
+  esp_now_peer_info_t peerInfo = {};
+  memcpy(peerInfo.peer_addr, broadcastAddress, MAC_SIZE);
+  peerInfo.channel = 0;
+  peerInfo.encrypt = false;
+  esp_now_add_peer(&peerInfo);
+
+  uint8_t myMac[MAC_SIZE];
+  esp_read_mac(myMac, ESP_MAC_WIFI_STA);
+  device = new DeviceState(myMac);
+}
+
+void loop() {
+  int user_state = /* assign your dynamic state here */ 0;
+  device->broadcastMessage(user_state);
+  delay(5000);
+}
