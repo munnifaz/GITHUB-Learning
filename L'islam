@@ -1,0 +1,112 @@
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { BookOpen, HelpCircle } from "lucide-react";
+
+const questions = [
+  {
+    question: "Combien de sourates contient le Coran ?",
+    options: ["113", "114", "115", "112"],
+    answer: "114",
+  },
+  {
+    question: "Quelle est la première sourate du Coran ?",
+    options: ["Al-Baqara", "Al-Fatiha", "Al-Ikhlas", "Al-Nas"],
+    answer: "Al-Fatiha",
+  },
+  {
+    question: "Qui est le dernier Prophète de l'islam ?",
+    options: ["Moussa", "Issa", "Mohammed", "Ibrahim"],
+    answer: "Mohammed",
+  },
+];
+
+const library = [
+  {
+    title: "Le Coran",
+    description: "Texte complet du Coran avec tafsir et traduction.",
+    link: "https://quran.com/fr",
+  },
+  {
+    title: "La vie du Prophète Mohammed (psl)",
+    description: "Biographie détaillée du Prophète Muhammad (paix sur lui).",
+    link: "https://www.islamreligion.com/fr/articles/192/la-biographie-du-prophete/",
+  },
+  {
+    title: "Les 5 piliers de l'islam",
+    description: "Explication approfondie des 5 piliers.",
+    link: "https://www.doctrine-malikite.fr/Les-cinq-piliers-de-l-Islam_a112.html",
+  },
+];
+
+export default function IslamicQuizSite() {
+  const [current, setCurrent] = useState(0);
+  const [score, setScore] = useState(0);
+  const [showResult, setShowResult] = useState(false);
+
+  const handleAnswer = (option) => {
+    if (option === questions[current].answer) {
+      setScore(score + 1);
+    }
+    if (current + 1 < questions.length) {
+      setCurrent(current + 1);
+    } else {
+      setShowResult(true);
+    }
+  };
+
+  const resetQuiz = () => {
+    setCurrent(0);
+    setScore(0);
+    setShowResult(false);
+  };
+
+  return (
+    <div className="p-6 max-w-3xl mx-auto">
+      <h1 className="text-3xl font-bold text-center mb-6">🌙 Quizz Islamique & Bibliothèque</h1>
+      <Tabs defaultValue="quiz" className="w-full">
+        <TabsList className="flex justify-center gap-4 mb-4">
+          <TabsTrigger value="quiz"><HelpCircle className="inline mr-2" /> Quiz</TabsTrigger>
+          <TabsTrigger value="library"><BookOpen className="inline mr-2" /> Bibliothèque</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="quiz">
+          {!showResult ? (
+            <Card className="p-4">
+              <CardContent>
+                <p className="mb-4 font-medium">{questions[current].question}</p>
+                <div className="grid grid-cols-1 gap-2">
+                  {questions[current].options.map((option, idx) => (
+                    <Button key={idx} onClick={() => handleAnswer(option)}>{option}</Button>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ) : (
+            <Card className="p-4 text-center">
+              <CardContent>
+                <p className="mb-2 text-xl">Résultat: {score}/{questions.length}</p>
+                <Button onClick={resetQuiz}>Recommencer</Button>
+              </CardContent>
+            </Card>
+          )}
+        </TabsContent>
+
+        <TabsContent value="library">
+          <div className="grid gap-4">
+            {library.map((item, index) => (
+              <Card key={index} className="p-4">
+                <CardContent>
+                  <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                  <p className="mb-2">{item.description}</p>
+                  <a href={item.link} target="_blank" className="text-blue-600 underline">Lire plus</a>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </TabsContent>
+      </Tabs>
+    </div>
+  )
