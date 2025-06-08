@@ -14,11 +14,27 @@ name: SLSA generic generator
 on:
   workflow_dispatch:
   release:
-    types: [created]
+    types: [creating]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: * {
+  margin:0px;
+  padding:0px;
+}
+
+#octocat {
+  display: block;
+  width:384px;
+  margin: 50px auto;
+}
+
+p {
+  display: block;
+  width: 400px;
+  margin: 50px auto;
+  font: 30px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+}
     outputs:
       digests: ${{ steps.hash.outputs.digests }}
 
