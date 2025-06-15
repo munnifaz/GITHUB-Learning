@@ -16,3 +16,20 @@ For some more information on how to fork a repository, [check out our guide, "Fo
    <p>
      Ready to team up? Let's collaborate, @octocat!
    </p>
+
+
+     color: #333;
+     line-height: 1.5;
+     text-align: center;
+   }
+
+   body {
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background-color: #f8f9fa;
+   }
+
+   #octocat img {
+     display: block;
+     width: 100%;
+     height: auto;
+   }
